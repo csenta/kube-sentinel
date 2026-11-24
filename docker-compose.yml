@@ -1,0 +1,10 @@
+version: "3.8"
+
+services:
+  kubesentinel:
+    build: .
+    container_name: kubesentinel
+    volumes:
+      - ./examples:/app/examples
+      - ./reports:/app/reports
+    command: ["scan", "--input", "examples/vulnerable_workload.yaml", "--output-html", "reports/audit.html"]
