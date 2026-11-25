@@ -3,12 +3,13 @@ import os
 import tempfile
 import unittest
 from kube_sentinel.cli import handle_rbac, handle_remediate, handle_scan
+_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 class TestCLI(unittest.TestCase):
     def setUp(self):
-        self.vuln_path = "/home/emprogue/Projects/kube-sentinel/examples/vulnerable_workload.yaml"
-        self.rbac_path = "/home/emprogue/Projects/kube-sentinel/examples/rbac_escalation.yaml"
+        self.vuln_path = os.path.join(_ROOT, "examples", "vulnerable_workload.yaml")
+        self.rbac_path = os.path.join(_ROOT, "examples", "rbac_escalation.yaml")
 
     def test_cli_scan(self):
         with tempfile.NamedTemporaryFile(delete=False, suffix=".json") as f_json:

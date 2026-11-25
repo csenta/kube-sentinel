@@ -1,13 +1,14 @@
 import os
 import unittest
 from kube_sentinel.core.manifest_parser import ManifestParser
+_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 class TestManifestParser(unittest.TestCase):
     def setUp(self):
-        self.vuln_path = "/home/emprogue/Projects/kube-sentinel/examples/vulnerable_workload.yaml"
-        self.rbac_path = "/home/emprogue/Projects/kube-sentinel/examples/rbac_escalation.yaml"
-        self.hard_path = "/home/emprogue/Projects/kube-sentinel/examples/hardened_workload.yaml"
+        self.vuln_path = os.path.join(_ROOT, "examples", "vulnerable_workload.yaml")
+        self.rbac_path = os.path.join(_ROOT, "examples", "rbac_escalation.yaml")
+        self.hard_path = os.path.join(_ROOT, "examples", "hardened_workload.yaml")
 
     def test_parse_vulnerable_workload(self):
         self.assertTrue(os.path.isfile(self.vuln_path))

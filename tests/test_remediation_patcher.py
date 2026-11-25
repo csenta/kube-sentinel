@@ -2,11 +2,13 @@ import unittest
 import yaml
 from kube_sentinel.auditors.remediation_patcher import RemediationPatcher
 from kube_sentinel.core.manifest_parser import ManifestParser
+import os
+_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 class TestRemediationPatcher(unittest.TestCase):
     def test_remediation_patching(self):
-        path = "/home/emprogue/Projects/kube-sentinel/examples/vulnerable_workload.yaml"
+        path = os.path.join(_ROOT, "examples", "vulnerable_workload.yaml")
         workloads, _, _, _ = ManifestParser.parse_file(path)
         patch = RemediationPatcher.patch_workload(workloads[0])
 

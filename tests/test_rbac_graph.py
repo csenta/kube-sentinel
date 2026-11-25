@@ -2,11 +2,13 @@ import unittest
 from kube_sentinel.core.manifest_parser import ManifestParser
 from kube_sentinel.core.rbac_graph import RBACGraphEngine
 from kube_sentinel.core.models import RBACSubject
+import os
+_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 class TestRBACGraph(unittest.TestCase):
     def test_bipartite_rbac_graph(self):
-        path = "/home/emprogue/Projects/kube-sentinel/examples/rbac_escalation.yaml"
+        path = os.path.join(_ROOT, "examples", "rbac_escalation.yaml")
         _, roles, bindings, _ = ManifestParser.parse_file(path)
         graph = RBACGraphEngine(roles, bindings)
 

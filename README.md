@@ -1,8 +1,10 @@
 # KubeSentinel ☸️
 
+> **Status:** prototype. A personal security-research project, not a production product. Expect rough edges; issues and pull requests are welcome.
+
 > **Autonomous Cloud-Native Kubernetes Security Posture Management & RBAC Privilege Escalation Graph Auditor**
 
-KubeSentinel is an enterprise-grade Kubernetes Security Posture Management (KSPM) and RBAC privilege graph auditor. It evaluates Kubernetes workload manifests, Helm chart outputs, and RBAC policies against Kubernetes Pod Security Standards (Restricted/Baseline), CIS Kubernetes Benchmark v1.8, and NSA/CISA Kubernetes Hardening Guidelines.
+KubeSentinel is a prototype Kubernetes Security Posture Management (KSPM) and RBAC privilege graph auditor. It evaluates Kubernetes workload manifests, Helm chart outputs, and RBAC policies against Kubernetes Pod Security Standards (Restricted/Baseline), CIS Kubernetes Benchmark v1.8, and NSA/CISA Kubernetes Hardening Guidelines.
 
 ---
 
@@ -121,3 +123,7 @@ Run with Docker Compose:
 ```bash
 docker-compose up --build
 ```
+
+## License
+
+MIT. See [LICENSE](LICENSE).
